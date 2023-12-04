@@ -1,0 +1,34 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"type": "shell",
+	"isBackground": false,
+	"presentation": {
+	"echo": true,
+	"reveal": "always",
+	"focus": true,
+	"panel": "shared",
+	"showReuseMessage": false,
+	"clear": true
+	},
+    	"problemMatcher": "$errmatcher-sjasmplus",
+	"tasks":
+	[
+		{
+			"label": "sjasmplus",
+			"type": "shell",
+			"command": "c:\\Users\\Faster\\Documents\\sjasmplus\\sjasmplus.exe",
+			"args": [
+				"--lst=${workspaceFolder}\\${fileBasenameNoExtension}.list",
+				"--color=on",
+				"--nologo",
+				"${workspaceFolder}\\sources\\${fileBasenameNoExtension}.asm"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
