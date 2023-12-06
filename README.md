@@ -8,4 +8,17 @@ Basic Loader Creator (tr-dos/tape editions) для sjasm v1.18.3 и новее. 
 Различные опции:
 - защита от команды MERGE;
 - скрытие листинга бейсик-строки;
-- текстовое сообщение-copyright в бейсик строке.
+- текстовое сообщение-copyright в бейсик-строке.
+
+
+Basic Loader Creator (tr-dos/tape editions) for sjasm v1.18.3 and newer. Compiles Basic Loader with code in BASIC-line for TR-DOS/TAPE.
+
+Modular system for connecting different variants of the BASIC-line:
+- RUN USR X [LET X = Start_Address] (TR-DOS);
+- RUN USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS/TAPE);
+- user-defined version.
+
+Miscellaneous options:
+- protection from "MERGE";
+- hiding the listing of BASIC-line;
+- copyright message.
