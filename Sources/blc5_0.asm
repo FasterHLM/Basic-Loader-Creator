@@ -1,16 +1,17 @@
-;Basic Loader Creator v5.0 (tr-dos/tape editions) for sjasmplus 1.18.3 or newer.
+;Basic Loader Creator v5.1 (tr-dos/tape editions) for sjasmplus 1.18.3 or newer.
 ;© 2010-2011, 2013, 2021, 2023 all rights reserved by Faster/HLM.
 
 		device zxspectrum48                   
 
 		include "./library/ctrl_codes.asm"	;control codes for BASIC-program
 		include "./library/sys_vars_48.asm"	;BASIC 48 system variables
-		include "./library/basic_line_v2.asm"	;1 - RUN USR X [LET X = Start_Address] (TR-DOS)
-							;2 - RUN USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS/TAPE)
-							;3 - user version
+		include "./library/basic_line_v2.asm"	;1 - RUN USR X [LET X = Start_Address] (TR-DOS or TAPE)
+							;2 - RUN USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS and TAPE)
+							;3 - RUN USR "10.12.2023" (TR-DOS or TAPE)
+							;4 - user version
 
 MergeProtect	equ 1					;0|1 - off/on protection from "MERGE"
-HiddenLine	equ 1					;0|1 - off/on hiding a text of BASIC-line
+HiddenLine	equ 1					;0|1 - off/on hiding the listing of BASIC-line
 CopyrightLine	equ 1					;0|1 - off/on copyright message
 
 NumberLine	equ 0					;BASIC-line number
@@ -21,7 +22,7 @@ StartLine	equ NumberLine				;autostart line number
 		db BRIGHT,0,PAPER,0,INK,4
 		db "    Basic Loader Creator 5.0    "
 		db INK,6
-		db "  (c) 07.12.2023 by Faster/HLM  "
+		db "  (c) 10.12.2023 by Faster/HLM  "
 		endm
 ;-
 		org #5d3b				;beginning of a BASIC-program (#5d3b for TR-DOS, #5ccb for +3DOS/TAPE)
@@ -35,7 +36,7 @@ BasicFileStart	db high NumberLine,low NumberLine	;2 bytes of BASIC-line number
 		endif
 BasicProg
 ;-
-		macro HiddenText n_bs, n_s		;hiding a text of BASIC-line
+		macro HiddenText n_bs, n_s		;hiding the listing of BASIC-line
 		if HiddenLine
         	dup n_bs
 		db BACKSPACE
@@ -77,11 +78,11 @@ BasicFileEnd
 		if (_ERRORS = 0 && _WARNINGS = 0)
 		labelslist 'c:\Users\Faster\Documents\Unreal\user.l'
 
-		emptytrd 'BLC5_0.trd'
-		savetrd 'BLC5_0.trd',|'boot.B',BasicFileStart,BasicFileEnd-BasicFileStart,NumberLine,BasicVariables-BasicFileStart
+		emptytrd 'BLC5_1.trd'
+		savetrd 'BLC5_1.trd',|'boot.B',BasicFileStart,BasicFileEnd-BasicFileStart,NumberLine,BasicVariables-BasicFileStart
 
-		emptytap "BLC5_0.tap"
-		savetap "BLC5_0.tap",BASIC,'boot',BasicFileStart,BasicFileEnd-BasicFileStart,NumberLine,BasicVariables-BasicFileStart
+		emptytap "BLC5_1.tap"
+		savetap "BLC5_1.tap",BASIC,'boot',BasicFileStart,BasicFileEnd-BasicFileStart,NumberLine,BasicVariables-BasicFileStart
 
-		shellexec 'c:\Users\Faster\Documents\Unreal\unreal.exe ./BLC5_0.trd'
+		shellexec 'c:\Users\Faster\Documents\Unreal\unreal.exe ./BLC5_1.trd'
 		endif

@@ -1,8 +1,8 @@
-//Code loader для Basic загрузчика
+;Code loader for Basic file
 		ei
-		ld a,(PROG)				//проверяем запущена ли программа в TR-DOS
+		ld a,(PROG)				;check if the program is running in TR-DOS
 		cp #3b
-		jr z,TRDOS				//запущена в TR-DOS
+		jr z,TRDOS				;running in TR-DOS
 Tape		ld a,#01			
 		out (#fe),a
 		ret
