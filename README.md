@@ -17,6 +17,7 @@ Basic Loader Creator (tr-dos/tape editions) для sjasm v1.18.3 и новее. 
 Basic Loader Creator (tr-dos/tape editions) for sjasm v1.18.3 and newer. Compiles Basic Loader with code in BASIC-line for TR-DOS/TAPE.
 
 Modular system for connecting different variants of the BASIC-line:
+<<<<<<< HEAD
 
 - RUN USR X [LET X = Start_Address] (TR-DOS or TAPE);
 - RUN USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS and TAPE);
@@ -28,3 +29,13 @@ Miscellaneous options:
 - protection from "MERGE";
 - hiding the listing of BASIC-line;
 - copyright message.
+=======
+- RUN USR X [LET X = Start_Address] (TR-DOS);
+- RUN USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS/TAPE);
+- user-defined version.
+
+Miscellaneous options:
+- protection from "MERGE";
+- hiding the listing of BASIC-line;
+- copyright message.
+>>>>>>> 2a51cffa726de1d61b15bc092b516b9699df25aa
