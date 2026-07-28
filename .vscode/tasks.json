@@ -1,0 +1,58 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "powershell",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/build.ps1"],
+            "group": "build",
+            "problemMatcher": {
+                "owner": "sjasmplus",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(error|warning)(?:\\[[^\\]]*\\])?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            }
+        },
+        {
+            "label": "build & run",
+            "type": "shell",
+            "command": "powershell",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/build.ps1", "-Run"],
+            "group": "build",
+            "problemMatcher": {
+                "owner": "sjasmplus",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(error|warning)(?:\\[[^\\]]*\\])?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            }
+        },
+        {
+            "label": "build & start CSpect (debug)",
+            "type": "shell",
+            "command": "powershell",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/build.ps1", "-DebugEmu"],
+            "problemMatcher": {
+                "owner": "sjasmplus",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^(.*)\\((\\d+)\\):\\s+(error|warning)(?:\\[[^\\]]*\\])?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            }
+        }
+    ]
+}

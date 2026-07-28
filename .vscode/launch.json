@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "DeZog: CSpect",
+            "remoteType": "cspect",
+            "cspect": {
+                "hostname": "localhost",
+                "port": 11000
+            },
+            "sjasmplus": [
+                { "path": "${workspaceFolder}/build/main.sld" }
+            ],
+            "rootFolder": "${workspaceFolder}",
+            "topOfStack": "stack_top",
+            "preLaunchTask": "build & start CSpect (debug)"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+root = true
+
+[*.asm]
+indent_style = tab
+indent_size = 16
+tab_width = 16
