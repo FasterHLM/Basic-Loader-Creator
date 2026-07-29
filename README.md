@@ -12,7 +12,7 @@ Miscellaneous options:
 - protection against MERGE;
 - hiding the BASIC line from LIST;
 - copyright message;
-- hidden message in the unused sectors of the .trd. (needs the next sjasmplus release - does not work on the current version)
+- hidden message padded out to the end of free space on the sector (needs the next sjasmplus release - does not work on the current version)
 
 ## Building
 
