@@ -47,8 +47,8 @@ zxdev\
 │     └─ Unreal\
 │        └─ unreal.exe	// only for build.ps1 -Run
 └─ zx_spectrum\projects\Basic-Loader-Creator\
-   ├─ build.ps1
-   └─ src\main.asm
+                        ├─ build.ps1
+                        └─ src\main.asm
 ```
 
 ```
