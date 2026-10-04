@@ -1,0 +1,4 @@
+build/
+*.bak
+Thumbs.db
+docs/article.ru.md
