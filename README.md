@@ -11,7 +11,7 @@ The output is one BASIC file: a program of a single line, with the machine code 
 Modular system for selecting different variants of the BASIC line:
 - `var` — IF USR x [x = START_ADDRESS] (TR-DOS or TAPE);
 - `peek` — IF USR VAL "PEEK 23628*256+PEEK 23627" (TR-DOS and TAPE);
-- `string` — IF USR <build date> (TR-DOS or TAPE);
+- `string` — IF USR \<build date\> (TR-DOS or TAPE);
 - `errsp` — POKE 0,0:POKE 0,0 [ERR_SP] (TR-DOS or TAPE);
 - `udg` — POKE 0,0:POKE 0,0:IF USR USR "a" [UDG] (TR-DOS or TAPE);
 - `strms` — POKE 0,0:LIST [stream table] (TR-DOS or TAPE);
