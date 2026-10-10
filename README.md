@@ -1,6 +1,6 @@
 # Basic Loader Creator
 
-Basic Loader Creator (tr-dos/tape editions) for sjasmplus v1.24.0 and newer. Compiles a Basic Loader for TR-DOS/TAPE with the machine code hidden right after its single BASIC line.
+Basic Loader Creator (tr-dos/tape editions) for sjasmplus v1.24.0 and newer. Compiles a Basic Loader for TR-DOS/TAPE with the machine code hidden right after its single BASIC line. Backstory [here](https://zx-pk.ru/threads/21217-basic-loader-creator.html).
 
 ## How it works
 
