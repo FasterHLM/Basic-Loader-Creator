@@ -55,8 +55,9 @@ zxdev\
 powershell -executionpolicy bypass -file build.ps1
 ```
 
-The script creates `build/` itself, assembles `src/main.asm` and writes the `.trd` / `.tap` file(s) there. Without
-PowerShell, call the assembler directly — but `build/` is not in the repository and has to exist first:
+The script creates `build/` itself, assembles `src/main.asm` and writes the `.trd` / `.tap` file(s) there. With `define scl` uncommented in
+`src/main.asm` it also writes a `.scl` (sjasmplus has no `SAVESCL`, so the Lua step `src/lua/trd2scl.asm` converts the
+`.trd`; nothing is written for `define run "tap"`). Without PowerShell, call the assembler directly — but `build/` is not in the repository and has to exist first:
 
 ```
 mkdir build

@@ -13,6 +13,8 @@
 	define diskname "BLC " .. version	;TR-DOS disk label: 8 characters (up to 11 with sjasmplus 1.24.1)
 	define run "trd"		;build format and file to launch: "trd" - disk image only, "tap" - tape only
 				;comment out to build both
+;	define scl			;uncomment to also write build/<project> <version>.scl, converted from the .trd by a Lua step
+				;(so it does nothing with define run "tap")
 ;-
 	include "lib/ctrl_codes.asm"		;BASIC control codes
 	include "lib/sys_vars_48.asm"		;BASIC 48 system variables
@@ -92,6 +94,10 @@ NumberLine	equ 0			;BASIC line number. For a disk autostart it must be at least 
 	savetrd OutputName .. ".trd", file .. ".B", BasicFileStart, TrdLength, NumberLine, BasicVariables-BasicFileStart
 	ifdef HiddenMessage
 	include "lua/hidden_message.asm"	;hidden message - onto the trd image, behind the autostart marker
+	endif
+	ifdef scl
+	define TrdImage OutputName .. ".trd"	;the image lua/trd2scl.asm converts - after the hidden message, so the .scl carries it too
+	include "lua/trd2scl.asm"		;sjasmplus has no savescl: a Lua step writes the .scl from the .trd
 	endif
 	endif
 
